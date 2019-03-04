@@ -104,13 +104,12 @@
                     <a href="#" v-if="i < 2">{{c.name}}</a>
                     <span v-else>{{c.name}}</span>
                 </li>
-                <li ><span>手机通讯</span></li>
             </ul>
             <!--已选择过滤项-->
             <ul class="tags-choose">
                 <li class="tag" v-for="(v,k) in search.filter" v-if="k !== 'cid3'" :key="k">
                     {{k === 'brandId' ? '品牌' : k}}:<span style="color: red">{{getFilterValue(k,v)}}</span></span>
-                    <i class="sui-icon icon-tb-close" @click="removeFilter(k)"></i>
+                    <i class="sui-icon icon-tb-close"></i>
                 </li>
             </ul>
 
@@ -123,11 +122,13 @@
                 <div class="fl value">
                     <ul class="type-list">
                         <li v-for="(option, j) in f.options" :key="j" @click="selectFilter(f.k, option)">
-                            <a>{{option.name}}</a>
+                            <a href="javascript:void(0);">{{option.name + (f.unit||'')}}</a>
                         </li>
                     </ul>
                 </div>
-                <div class="fl ext"></div>
+                <div class="fl ext">
+                    <a href="javascript:void(0);" class="sui-btn">多选</a>
+                </div>
             </div>
             <div class="type-wrap logo" v-else>
                 <div class="fl key brand">{{f.k}}</div>
@@ -147,108 +148,108 @@
             </div>
 
 
-            <div class="type-wrap">
-                <div class="fl key">网络制式</div>
-                <div class="fl value">
-                    <ul class="type-list">
-                        <li>
-                            <a>GSM（移动/联通2G）</a>
-                        </li>
-                        <li>
-                            <a>电信2G</a>
-                        </li>
-                        <li>
-                            <a>电信3G</a>
-                        </li>
-                        <li>
-                            <a>移动3G</a>
-                        </li>
-                        <li>
-                            <a>联通3G</a>
-                        </li>
-                        <li>
-                            <a>联通4G</a>
-                        </li>
-                        <li>
-                            <a>电信3G</a>
-                        </li>
-                        <li>
-                            <a>移动3G</a>
-                        </li>
-                        <li>
-                            <a>联通3G</a>
-                        </li>
-                        <li>
-                            <a>联通4G</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fl ext"></div>
-            </div>
-            <div class="type-wrap">
-                <div class="fl key">显示屏尺寸</div>
-                <div class="fl value">
-                    <ul class="type-list">
-                        <li>
-                            <a>4.0-4.9英寸</a>
-                        </li>
-                        <li>
-                            <a>4.0-4.9英寸</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fl ext"></div>
-            </div>
-            <div class="type-wrap">
-                <div class="fl key">摄像头像素</div>
-                <div class="fl value">
-                    <ul class="type-list">
-                        <li>
-                            <a>1200万以上</a>
-                        </li>
-                        <li>
-                            <a>800-1199万</a>
-                        </li>
-                        <li>
-                            <a>1200-1599万</a>
-                        </li>
-                        <li>
-                            <a>1600万以上</a>
-                        </li>
-                        <li>
-                            <a>无摄像头</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fl ext"></div>
-            </div>
-            <div class="type-wrap">
-                <div class="fl key">价格</div>
-                <div class="fl value">
-                    <ul class="type-list">
-                        <li>
-                            <a>0-500元</a>
-                        </li>
-                        <li>
-                            <a>500-1000元</a>
-                        </li>
-                        <li>
-                            <a>1000-1500元</a>
-                        </li>
-                        <li>
-                            <a>1500-2000元</a>
-                        </li>
-                        <li>
-                            <a>2000-3000元 </a>
-                        </li>
-                        <li>
-                            <a>3000元以上</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fl ext">
-                </div>
-            </div>
+            <!--<div class="type-wrap">-->
+                <!--<div class="fl key">网络制式</div>-->
+                <!--<div class="fl value">-->
+                    <!--<ul class="type-list">-->
+                        <!--<li>-->
+                            <!--<a>GSM（移动/联通2G）</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>电信2G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>电信3G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>移动3G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>联通3G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>联通4G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>电信3G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>移动3G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>联通3G</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>联通4G</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="fl ext"></div>-->
+            <!--</div>-->
+            <!--<div class="type-wrap">-->
+                <!--<div class="fl key">显示屏尺寸</div>-->
+                <!--<div class="fl value">-->
+                    <!--<ul class="type-list">-->
+                        <!--<li>-->
+                            <!--<a>4.0-4.9英寸</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>4.0-4.9英寸</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="fl ext"></div>-->
+            <!--</div>-->
+            <!--<div class="type-wrap">-->
+                <!--<div class="fl key">摄像头像素</div>-->
+                <!--<div class="fl value">-->
+                    <!--<ul class="type-list">-->
+                        <!--<li>-->
+                            <!--<a>1200万以上</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>800-1199万</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>1200-1599万</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>1600万以上</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>无摄像头</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="fl ext"></div>-->
+            <!--</div>-->
+            <!--<div class="type-wrap">-->
+                <!--<div class="fl key">价格</div>-->
+                <!--<div class="fl value">-->
+                    <!--<ul class="type-list">-->
+                        <!--<li>-->
+                            <!--<a>0-500元</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>500-1000元</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>1000-1500元</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>1500-2000元</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>2000-3000元 </a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a>3000元以上</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="fl ext">-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="type-wrap" style="text-align: center">
                 <v-btn small flat @click="show=true" v-show="!show">
                     更多<v-icon>arrow_drop_down</v-icon>
@@ -465,16 +466,17 @@
             total: 0, //总条数
             totalPage: 0, //总页数
             filters: [], //过滤参数集合
-            show: false //是否展开更多过滤条件
+            show: false, //是否展开更多过滤条件,
+            breads: []
         },
         computed:{
             remainFilters(){
                 const keys = Object.keys(this.search.filter);
                 if(this.search.filter.cid3){
-                    keys.push("cid3")
+                    keys.push("cid3");
                 }
                 if(this.search.filter.brandId){
-                    keys.push("brandId")
+                    keys.push("brandId");
                 }
                 return this.filters.filter(f => !keys.includes(f.k) && f.options.length > 1);
             }
@@ -488,6 +490,7 @@
             const search = ly.parse(location.search.substring(1));
             //对page进行初始化，防止第一次访问时page为空
             search.page = search.page ? parseInt(search.page) : 1;
+            search.filter = search.filter ? search.filter : {};
             //对排序进行初始化，默认为"",代表不排序
             search.sortBy = search.sortBy || "";
             //对排序方式初始化，转为布尔值
@@ -531,7 +534,9 @@
                     if(data.categories.length === 1){
                         //如果只有1个，那么就查询三级商品分类，展示到面包屑
                         ly.http.get("/item/category/all/level?id="+data.categories[0].id)
-                            .then(resp => this.breads = resp.data);
+                            .then(resp => {
+                                this.breads = resp.data;
+                            });
                     }
 
                     //初始化分类过滤项
@@ -593,11 +598,7 @@
                     return this.filters.find(f => f.k === 'brandId').options[0].name;
                 }
                 return v;
-            },
-            removeFilter(k){
-                this.search.filter[k] = null;
             }
-
 
 
 
